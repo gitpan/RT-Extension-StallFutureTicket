@@ -1,12 +1,15 @@
 use inc::Module::Install;
 
-RTx('RT-Extension-StallFutureTicket');
-license('perl');
-author('Benjamin Heisig <bheisig@synetics.de>');
-version('0.2.1');
-abstract_from('lib/RT/Extension/StallFutureTicket.pm');
+RTx 'RT-Extension-StallFutureTicket';
+
+all_from 'lib/RT/Extension/StallFutureTicket.pm';
+license 'perl';
+readme_from;
 repository 'git://git.benjaminheisig.net/rt-extension-stallfutureticket.git';
+
+requires_rt('4.0.0');
+requires 'Date::Manip' => '6.25';
+auto_install();
 
 sign;
 &WriteAll;
-
